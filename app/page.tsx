@@ -5,6 +5,11 @@ import axios from "axios";
 import { Audio } from "react-loader-spinner";
 import ReactMarkdown from "react-markdown";
 
+// Define the type for selectedProducts state
+type SelectedProducts = {
+  [key: string]: string;
+};
+
 const products = [
   "Chicken", "Beef", "Fish", "Pork", "Milk", "Cheese", "Yogurt", "Eggs",
   "Carrots", "Broccoli", "Spinach", "Tomatoes", "Potatoes", "Onions", "Peppers",
@@ -12,12 +17,13 @@ const products = [
 ];
 
 export default function Home() {
-  const [selectedProducts, setSelectedProducts] = useState({});
-  const [script, setScript] = useState("");
-  const [steps, setSteps] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // Use appropriate types for state variables
+  const [selectedProducts, setSelectedProducts] = useState<SelectedProducts>({});
+  const [script, setScript] = useState<string>("");
+  const [steps, setSteps] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const toggleProduct = (product) => {
+  const toggleProduct = (product: string) => {
     setSelectedProducts((prev) => {
       if (prev[product]) {
         const updated = { ...prev };
@@ -28,7 +34,7 @@ export default function Home() {
     });
   };
 
-  const updateQuantity = (product, quantity) => {
+  const updateQuantity = (product: string, quantity: string) => {
     setSelectedProducts((prev) => ({
       ...prev,
       [product]: quantity,
