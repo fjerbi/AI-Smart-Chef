@@ -2,7 +2,7 @@ import { OpenAI } from 'openai';
 
 
 const openai = new OpenAI({
-  apiKey: process.env.NEXT_PUBLIC_OPENROUTER_API_TOKEN,
+  apiKey: process.env.OPENROUTER_API_TOKEN,
   baseURL: "https://openrouter.ai/api/v1/",
 });
 
